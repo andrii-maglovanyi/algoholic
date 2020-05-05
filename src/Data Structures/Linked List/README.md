@@ -1,3 +1,1 @@
-**Linked lists** have constant-time insertions and deletions
-because we can just change the pointers. To do the same operations in arrays requires linear time because subsequent items need
-to be shifted over.
+**Linked lists** have constant-time insertions and deletions because we can just change the pointers. To do the same operations in arrays requires linear time because subsequent items need to be shifted over.

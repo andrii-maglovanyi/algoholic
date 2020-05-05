@@ -1,7 +1,7 @@
 import { LinkedList } from "./linked-list";
 
 describe("Linked List", () => {
-  let list: LinkedList;
+  let list;
 
   beforeEach(() => {
     list = new LinkedList();
@@ -12,8 +12,8 @@ describe("Linked List", () => {
   test("Should create and manipulate a new Linked list", () => {
     expect(list.isEmpty()).toBeFalsy();
     list.pop();
-    expect(list.tail?.value).toBe("d");
-    expect(list.get(1)?.value).toBe("b");
+    expect(list.tail.value).toBe("d");
+    expect(list.get(1).value).toBe("b");
     list.delete(1);
     expect(list.print()).toBe("a => c => d");
     list.pop();
