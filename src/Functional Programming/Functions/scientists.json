@@ -1,0 +1,29 @@
+{
+  "scientists": [
+    {
+      "fullName": "Haskell Brooks Curry",
+      "address": { "country": "United States" },
+      "birthYear": 1900
+    },
+    {
+      "fullName": "John von Neumann",
+      "address": { "country": "Hungary" },
+      "birthYear": 1903
+    },
+    {
+      "fullName": "Alan Turing",
+      "address": { "country": "United Kingdom" },
+      "birthYear": 1912
+    },
+    {
+      "fullName": "Tim Berners-Lee",
+      "address": { "country": "United Kingdom" },
+      "birthYear": 1955
+    },
+    {
+      "fullName": "Edsger W. Dijkstra",
+      "address": { "country": "Netherlands" },
+      "birthYear": 1930
+    }
+  ]
+}

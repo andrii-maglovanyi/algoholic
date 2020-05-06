@@ -5,53 +5,43 @@ import { map } from "rxjs/operators";
 
 import { map as customMap } from "./map";
 
-const scientists = [
-  {
-    fullName: "John von Neumann",
-    address: "Hungary",
-    birthYear: "1903",
-  },
-  {
-    fullName: "Alan Turing",
-    address: "United Kingdom",
-    birthYear: "1912",
-  },
-  {
-    fullName: "Tim Berners-Lee",
-    address: "United Kingdom",
-    birthYear: "1955",
-  },
+import { scientists } from "./scientists.json";
+
+const result = [
+  "Haskell Brooks Curry",
+  "John von Neumann",
+  "Alan Turing",
+  "Tim Berners-Lee",
+  "Edsger W. Dijkstra",
 ];
 
-let result = ["John von Neumann", "Alan Turing", "Tim Berners-Lee"];
-
-const predicateFunction = (s) =>
+const iteratorFunction = (s) =>
   s !== null && s !== undefined ? s.fullName : "";
 
 describe("Map", () => {
   test("Custom implementation", () => {
-    const fullNames = customMap(scientists, predicateFunction);
+    const fullNames = customMap(scientists, iteratorFunction);
     expect(fullNames).toEqual(result);
   });
 
   test("_.map", () => {
-    const fullNames = _.map(scientists, predicateFunction);
+    const fullNames = _.map(scientists, iteratorFunction);
     expect(fullNames).toEqual(result);
 
     // Lodash 'reverse' mutates original array
     const reversedFullNames = _([...scientists])
       .reverse()
-      .map(predicateFunction)
+      .map(iteratorFunction)
       .value();
 
     expect(reversedFullNames).toEqual([...result].reverse());
   });
 
   test("R.map", () => {
-    const fullNames = R.map(predicateFunction, scientists);
+    const fullNames = R.map(iteratorFunction, scientists);
     expect(fullNames).toEqual(result);
 
-    const reversedFullNames = R.map(predicateFunction, R.reverse(scientists));
+    const reversedFullNames = R.map(iteratorFunction, R.reverse(scientists));
 
     expect(reversedFullNames).toEqual([...result].reverse());
   });
@@ -59,12 +49,12 @@ describe("Map", () => {
   test("rxjs.map", (done) => {
     let index = 0;
     from(scientists)
-      .pipe(map(predicateFunction))
+      .pipe(map(iteratorFunction))
       .subscribe({
         next: (fullName) => {
           expect(fullName).toBe(result[index++]);
         },
-        complete: () => done(),
+        complete: done,
       });
   });
 });
