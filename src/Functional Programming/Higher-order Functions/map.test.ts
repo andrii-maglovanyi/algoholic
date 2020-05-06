@@ -11,8 +11,9 @@ const result = [
   "Haskell Brooks Curry",
   "John von Neumann",
   "Alan Turing",
-  "Tim Berners-Lee",
   "Edsger W. Dijkstra",
+  "Stephen Hawking",
+  "Tim Berners-Lee",
 ];
 
 const iteratorFunction = (s) =>

@@ -1,8 +1,8 @@
 import { createCharMap, sortString } from "../../utils/strings";
 
 /**
- * Time Complexity: O(n)
- * Space Complexity: O(n)
+ * Time O(n)
+ * Space O(n)
  */
 const characterMapComparison = (textA: string, textB: string) => {
   const charCountA = createCharMap(textA);
@@ -18,8 +18,8 @@ const characterMapComparison = (textA: string, textB: string) => {
 };
 
 /**
- * Time Complexity: O(n)
- * Space Complexity: O(1)
+ * Time O(n)
+ * Space O(1)
  */
 const directComparison = (textA: string, textB: string) =>
   sortString(textA) === sortString(textB);

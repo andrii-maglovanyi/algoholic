@@ -1,7 +1,7 @@
 import { solutions } from "./anagrams";
 
 describe("Anagrams", () => {
-  test("Character Map Comparison", () => {
+  test("with Character Map Comparison", () => {
     const isAnagram = solutions["Character Map Comparison"];
 
     expect(isAnagram("hello world", "world hello")).toBe(true);
@@ -10,7 +10,7 @@ describe("Anagrams", () => {
     expect(isAnagram("fried", "fired")).toBe(true);
   });
 
-  test("Direct Comparison", () => {
+  test("with Direct Comparison", () => {
     const isAnagram = solutions["Direct Comparison"];
 
     expect(isAnagram("hello world", "world hello")).toBe(true);

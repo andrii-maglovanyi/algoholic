@@ -10,7 +10,7 @@ import { scientists } from "../scientists.json";
 const result = {
   Hungary: 1,
   Netherlands: 1,
-  "United Kingdom": 2,
+  "United Kingdom": 3,
   "United States": 1,
 };
 
