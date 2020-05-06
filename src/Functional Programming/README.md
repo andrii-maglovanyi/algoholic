@@ -2,11 +2,11 @@
 
 - First-class Functions
 - Higher-order Functions
-- Pure Functions
 - Immutable Data
-- Recursion
-- Manipulation of Lists
 - Lazy Evaluation
+- Manipulation of Lists
+- Pure Functions
+- Recursion
 
 ## Functor
 
