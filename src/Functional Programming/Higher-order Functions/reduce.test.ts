@@ -5,7 +5,7 @@ import { map, reduce } from "rxjs/operators";
 
 import { reduce as customReduce } from "./reduce";
 
-import { scientists } from "./scientists.json";
+import { scientists } from "../scientists.json";
 
 const result = {
   Hungary: 1,

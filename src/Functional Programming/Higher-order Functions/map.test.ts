@@ -5,7 +5,7 @@ import { map } from "rxjs/operators";
 
 import { map as customMap } from "./map";
 
-import { scientists } from "./scientists.json";
+import { scientists } from "../scientists.json";
 
 const result = [
   "Haskell Brooks Curry",

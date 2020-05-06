@@ -1,0 +1,40 @@
+{
+  "scientists": [
+    {
+      "fullName": "Haskell Brooks Curry",
+      "address": { "country": "United States" },
+      "birthYear": 1900,
+      "subject": "Computer Science"
+    },
+    {
+      "fullName": "John von Neumann",
+      "address": { "country": "Hungary" },
+      "birthYear": 1903,
+      "subject": "Computer Science"
+    },
+    {
+      "fullName": "Alan Turing",
+      "address": { "country": "United Kingdom" },
+      "birthYear": 1912,
+      "subject": "Computer Science"
+    },
+    {
+      "fullName": "Edsger W. Dijkstra",
+      "address": { "country": "Netherlands" },
+      "birthYear": 1930,
+      "subject": "Computer Science"
+    },
+    {
+      "fullName": "Stephen Hawking",
+      "address": { "country": "United Kingdom" },
+      "birthYear": 1942,
+      "subject": "Theoretical Cosmology"
+    },
+    {
+      "fullName": "Tim Berners-Lee",
+      "address": { "country": "United Kingdom" },
+      "birthYear": 1955,
+      "subject": "Computer Science"
+    }
+  ]
+}

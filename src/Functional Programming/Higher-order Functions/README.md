@@ -2,15 +2,21 @@
 
 - **map** is applies a function to each element in a list (functor), in order, and returns a new array of equal length.
 
-`[🐮, 🥔, 🐔, 🌽].map(cook) => [🍔, 🍟, 🍗, 🍿]`
+```javascript
+[🐮, 🥔, 🐔, 🌽].map(cook) => [🍔, 🍟, 🍗, 🍿]
+```
 
 - **filter** iterates through an array of elements and returns a new array that's a subset of the original with values that satisfy a condition.
 
-`[🍔, 🍟, 🍗, 🍿].filter(isVegetarian) => [🍟, 🍿]`
+```javascript
+[🍔, 🍟, 🍗, 🍿].filter(isVegetarian) => [🍟, 🍿]
+```
 
 - **reduce** compresses a list of elements down to a single value. This value is computed from the accumulated result of invoking a function with an accumulator value against each element.
 
-`[🍔, 🍟, 🍗, 🍿].reduce(eat) => 💩`
+```javascript
+[🍔, 🍟, 🍗, 🍿].reduce(eat) => 💩
+```
 
 ---
 

@@ -5,7 +5,7 @@ import { filter, map } from "rxjs/operators";
 
 import { filter as customFilter } from "./filter";
 
-import { scientists } from "./scientists.json";
+import { scientists } from "../scientists.json";
 
 const result = [
   "Haskell Brooks Curry",
