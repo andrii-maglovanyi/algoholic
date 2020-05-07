@@ -6,6 +6,9 @@ const floydAlgorithm = (array: number[]) => {
   let tortoise = array[0],
     hare = array[0];
 
+  // Phase 1. Tortoise and Hare start from the same beginning point.
+  // Hare moves two steps and Tortoise moves one step, so Hare moves twice faster.
+  // Stop the cycle when Hare and Tortoise meet.
   while (true) {
     tortoise = array[tortoise];
     hare = array[array[hare]];
@@ -15,15 +18,18 @@ const floydAlgorithm = (array: number[]) => {
     }
   }
 
-  let pointerA = array[0];
-  let pointerB = tortoise;
+  // Phase 2. Tortoise starts again from the beginning. Hare starts from last meet point.
+  // Both are moving with the same speed now.
+  // When they meet again is the beginning of the cycle and the duplicate number.
+  hare = tortoise;
+  tortoise = array[0];
 
-  while (pointerA !== pointerB) {
-    pointerA = array[pointerA];
-    pointerB = array[pointerB];
+  while (tortoise !== hare) {
+    tortoise = array[tortoise];
+    hare = array[hare];
   }
 
-  return pointerA;
+  return tortoise;
 };
 
 export const solutions = {
