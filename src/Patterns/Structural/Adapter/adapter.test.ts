@@ -1,4 +1,4 @@
-import { Adaptee, Adapter, Target } from "./power";
+import { Adaptee, Adapter, Target } from "./adapter";
 
 describe("Adapter", () => {
   test("Should convert electric power", () => {

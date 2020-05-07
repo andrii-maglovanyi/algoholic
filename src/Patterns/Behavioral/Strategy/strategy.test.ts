@@ -1,4 +1,4 @@
-import { Navigator, BikeNavigation, CarNavigation } from "./navigator";
+import { Navigator, BikeNavigation, CarNavigation } from "./strategy";
 
 describe("Strategy Pattern", () => {
   test("Should pick navigation strategy", () => {

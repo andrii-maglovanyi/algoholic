@@ -12,6 +12,6 @@ The **Prototype Pattern** creates new objects, but rather than creating non-init
 - You can produce complex objects more conveniently.
 - You get an alternative to inheritance when dealing with configuration presets for complex objects.
 
-## Const
+## Cons
 
 - Cloning complex objects that have circular references might be very tricky.

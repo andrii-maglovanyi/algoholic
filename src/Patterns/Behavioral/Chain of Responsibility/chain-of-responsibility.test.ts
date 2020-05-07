@@ -4,7 +4,7 @@ import {
   HamiltonHandler,
   LincolnHandler,
   WashingtonHandler,
-} from "./atm";
+} from "./chain-of-responsibility";
 
 describe("Chain of Responsibility", () => {
   it("Should return correct amount of money", () => {

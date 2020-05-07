@@ -1,4 +1,4 @@
-import { Agent, BuyStockOrder, SellStockOrder, StockTrade } from "./stock";
+import { Agent, BuyStockOrder, SellStockOrder, StockTrade } from "./command";
 
 describe("Command Pattern", () => {
   test("Should place a stock order", () => {
