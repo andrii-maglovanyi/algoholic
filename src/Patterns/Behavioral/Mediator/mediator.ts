@@ -3,7 +3,7 @@ interface Mediator {
 }
 
 export class Chatroom implements Mediator {
-  public participants?: Participant[] = [];
+  public participants: Participant[] = [];
 
   registerParticipant(participant: Participant) {
     participant.setMediator(this);

@@ -1,4 +1,6 @@
-import { TestSolutions } from "../../utils/test-solutions";
+// @ts-nocheck
+
+import { TestSolutions } from "@utils/test-solutions";
 
 import { solutions } from "./sum-of-numbers";
 

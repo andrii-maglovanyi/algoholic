@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { LinkedList } from "./linked-list";
 
 describe("Linked List", () => {

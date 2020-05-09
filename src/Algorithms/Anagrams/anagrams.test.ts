@@ -1,21 +1,14 @@
+// @ts-nocheck
+
+import { TestSolutions } from "@utils/test-solutions";
+
 import { solutions } from "./anagrams";
 
 describe("Anagrams", () => {
-  test("with Character Map Comparison", () => {
-    const isAnagram = solutions["Character Map Comparison"];
-
-    expect(isAnagram("hello world", "world hello")).toBe(true);
-    expect(isAnagram("silent", "listen")).toBe(true);
-    expect(isAnagram("hell world", "hello world")).toBe(false);
-    expect(isAnagram("fried", "fired")).toBe(true);
-  });
-
-  test("with Direct Comparison", () => {
-    const isAnagram = solutions["Direct Comparison"];
-
-    expect(isAnagram("hello world", "world hello")).toBe(true);
-    expect(isAnagram("silent", "listen")).toBe(true);
-    expect(isAnagram("hell world", "hello world")).toBe(false);
-    expect(isAnagram("fried", "fired")).toBe(true);
+  TestSolutions(solutions, (solution) => {
+    expect(solution("hello world", "world hello")).toBe(true);
+    expect(solution("silent", "listen")).toBe(true);
+    expect(solution("hell world", "hello world")).toBe(false);
+    expect(solution("fried", "fired")).toBe(true);
   });
 });

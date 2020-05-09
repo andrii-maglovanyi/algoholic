@@ -1,3 +1,5 @@
+//@ts-nocheck
+
 import { BinaryTree } from "./binary-tree";
 
 describe("Binary Tree", () => {
