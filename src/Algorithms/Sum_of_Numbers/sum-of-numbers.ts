@@ -1,5 +1,5 @@
 /**
- * Time O(n2)
+ * Time O(n^2)
  * Space O(1)
  */
 const findSum = (array: number[], sum: number) => {
