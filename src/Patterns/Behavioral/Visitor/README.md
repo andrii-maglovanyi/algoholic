@@ -17,3 +17,7 @@ Visitors are useful when building extensibility in a library or framework. If th
 
 - You need to update all visitors each time a class gets added to or removed from the element hierarchy.
 - Visitors might lack the necessary access to the private fields and methods of the elements that they’re supposed to work with.
+
+## Usage
+
+- Babel plugins
