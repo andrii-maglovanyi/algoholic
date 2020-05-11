@@ -1,6 +1,13 @@
 import { createCharMap, sortString } from "@utils/strings";
 
 /**
+ * Time O(nlogn)
+ * Space O(1)
+ */
+const directComparison = (textA: string, textB: string) =>
+  sortString(textA) === sortString(textB);
+
+/**
  * Time O(n)
  * Space O(n)
  */
@@ -17,14 +24,7 @@ const characterMapComparison = (textA: string, textB: string) => {
   return true;
 };
 
-/**
- * Time O(n)
- * Space O(1)
- */
-const directComparison = (textA: string, textB: string) =>
-  sortString(textA) === sortString(textB);
-
 export const solutions = {
-  "Character Map Comparison": characterMapComparison,
   "Direct Comparison": directComparison,
+  "Character Map Comparison": characterMapComparison,
 };

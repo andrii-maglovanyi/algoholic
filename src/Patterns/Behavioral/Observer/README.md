@@ -13,3 +13,8 @@ The **Observer** pattern offers a subscription model in which objects subscribe 
 ## Cons
 
 - Subscribers are notified in random order.
+
+## Usage
+
+- Promise (An Observable with one single emitted value)
+- Rx.js

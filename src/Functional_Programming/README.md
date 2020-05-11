@@ -1,7 +1,7 @@
 # Characteristics of functional Programming
 
 - First-class Functions
-- Higher-order Functions
+- [Higher-order Functions](Higher_Order_Functions/README.md)
 - Immutable Data
 - Lazy Evaluation
 - Manipulation of Lists

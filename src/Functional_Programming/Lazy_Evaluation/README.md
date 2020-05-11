@@ -1,16 +1,19 @@
 **Lazy evaluation** delays evaluating an expression until it is actually needed. When it is evaluated, the result is saved so repeated evaluation is not needed.
-The opposite (evaluating immediately) is called strict evaluation.
+The opposite (evaluating immediately) is called _strict evaluation_.
+
+Lazy evaluation is performant (and correct) only when correctly mixed with referential transparency. If the state of your variables is constantly changing, you can forget about memoization, and suddenly lazy evaluation becomes slower than doing it eagerly.
 
 ## Pros
 
 - Discard expressions that are not directly linked to result and reduce the time complexity of an algorithm.
 - Ability to work with infinite lists.
-- Short circuiting behavior.
-- Memoization.
+- Short circuiting behavior for a logical AND (&&).
+- Memoization. A dictionary where the key is the name of the variable, and the value is the result of the evaluation. When compiler encounters an already evaluated variable, it can simply look up the value in the dictionary.
 
 ## Cons
 
 - Can increase space complexity of an algorithm.
+- The reason so few compilers support lazy evaluation is that it makes writing an imperative, OOP-style compiler tricky.
 
 ---
 
