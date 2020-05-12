@@ -15,21 +15,21 @@ describe("Linked List", () => {
     expect(list.isEmpty()).toBeFalsy();
     list.pop();
     expect(list.tail.value).toBe("d");
-    expect(list.get(1).value).toBe("b");
+    expect(list.get(1)).toBe("b");
     list.delete(1);
-    expect(list.print()).toBe("a => c => d");
+    expect(list.toArray()).toEqual(["a", "c", "d"]);
     list.pop();
-    expect(list.print()).toBe("a => c");
+    expect(list.toArray()).toEqual(["a", "c"]);
     list.delete(0);
-    expect(list.print()).toBe("c");
+    expect(list.toArray()).toEqual(["c"]);
     list.pop();
-    expect(list.print()).toBe("");
+    expect(list.toArray()).toEqual([]);
     list.push("f");
-    expect(list.print()).toBe("f");
+    expect(list.toArray()).toEqual(["f"]);
   });
 
   test("Should reverse the list", () => {
-    expect(list.reverse().print()).toBe("e => d => c => b => a");
+    expect(list.reverse().toArray()).toEqual(["e", "d", "c", "b", "a"]);
   });
 
   test("Should find a node in the list", () => {

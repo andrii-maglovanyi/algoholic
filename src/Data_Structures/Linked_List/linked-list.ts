@@ -81,7 +81,7 @@ export class LinkedList {
       }
     }
 
-    return current;
+    return current?.value;
   }
 
   isEmpty() {
@@ -117,19 +117,7 @@ export class LinkedList {
     }
 
     this.length--;
-    return node;
-  }
-
-  print() {
-    const values = [];
-    let current = this.head;
-
-    while (current) {
-      values.push(current.value);
-      current = current.next;
-    }
-
-    return values.join(" => ");
+    return node?.value;
   }
 
   push(value: any) {
@@ -164,5 +152,17 @@ export class LinkedList {
     this.head = previous;
 
     return this;
+  }
+
+  toArray() {
+    const values = [];
+
+    let current = this.head;
+    while (current) {
+      values.push(current.value);
+      current = current.next;
+    }
+
+    return values;
   }
 }
