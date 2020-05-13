@@ -4,5 +4,8 @@
     "titleBar.inactiveForeground": "#000000CC",
     "titleBar.activeBackground": "#1abc9c",
     "titleBar.inactiveBackground": "#2d9c84"
-  }
+  },
+  "python.pythonPath": "/usr/local/bin/python3",
+  "python.testing.pytestArgs": ["src"],
+  "python.testing.pytestEnabled": true
 }
