@@ -54,9 +54,9 @@ describe("Binary Tree", () => {
     expect(_post).toEqual([2, 1, 4, 3, 9, 10, 8, 7, 6, 5]);
   });
 
-  test("Should implement breadthDepthTraversal", () => {
+  test("Should implement breadthFirstTraversal", () => {
     const result = [];
-    binaryTree.breadthDepthTraversal((value) => result.push(value));
+    binaryTree.breadthFirstTraversal((value) => result.push(value));
     expect(result).toEqual([5, 3, 6, 1, 4, 7, 2, 8, 10, 9]);
   });
 

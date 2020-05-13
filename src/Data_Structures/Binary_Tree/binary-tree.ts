@@ -9,6 +9,7 @@ export class BinaryTree {
 
   contains(value: Value): boolean {
     if (value === this.value) return true;
+
     if (value < this.value) {
       if (!this.left) return false;
       return this.left.contains(value);
@@ -18,8 +19,9 @@ export class BinaryTree {
     }
   }
 
-  // Levelorder: This traverses nodes by levels instead of sub-trees. First, visit the root node; then visit all children of the root node- left to right. Subsequently, go down levels till you reach the node that has no children- the leaf nodes.
-  breadthDepthTraversal(callback: Callback) {
+  // Levelorder: This traverses nodes by levels instead of sub-trees. First, visit the root node; then visit all children of the root node- left to right.
+  // Subsequently, go down levels till you reach the node that has no children- the leaf nodes.
+  breadthFirstTraversal(callback: Callback) {
     const queue = [this as BinaryTree];
     while (queue.length) {
       const root = queue.shift();
