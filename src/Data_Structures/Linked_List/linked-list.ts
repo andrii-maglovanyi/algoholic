@@ -154,6 +154,25 @@ export class LinkedList {
     return this;
   }
 
+  shift() {
+    if (this.isEmpty()) {
+      return null;
+    }
+
+    const node = this.head;
+
+    if (this.head === this.tail) {
+      this.head = null;
+      this.tail = null;
+    } else if (this.head) {
+      this.head = this.head.next;
+    }
+
+    this.length--;
+
+    return node?.value;
+  }
+
   toArray() {
     const values = [];
 
@@ -164,5 +183,21 @@ export class LinkedList {
     }
 
     return values;
+  }
+
+  unshift(value: any) {
+    const node = new Node(value);
+
+    if (this.head === null) {
+      this.head = node;
+      this.tail = node;
+    } else {
+      node.next = this.head;
+      this.head = node;
+    }
+
+    this.length++;
+
+    return node.value;
   }
 }
