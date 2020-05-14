@@ -13,14 +13,12 @@ describe("Linked List", () => {
 
   test("Should create and manipulate a new Linked list", () => {
     expect(list.isEmpty()).toBeFalsy();
-    let node = list.pop();
-    expect(node).toBe("e");
+    expect(list.pop()).toBe("e");
     expect(list.tail.value).toBe("d");
     expect(list.get(1)).toBe("b");
     list.delete(1);
     expect(list.toArray()).toEqual(["a", "c", "d"]);
-    node = list.pop();
-    expect(node).toBe("d");
+    expect(list.pop()).toBe("d");
 
     expect(list.toArray()).toEqual(["a", "c"]);
     list.delete(0);
@@ -33,20 +31,17 @@ describe("Linked List", () => {
     list.push("h");
     list.toArray(); //?
     expect(list.toArray()).toEqual(["f", "g", "h"]);
-    node = list.shift();
-    expect(node).toBe("f");
+    expect(list.shift()).toBe("f");
     expect(list.toArray()).toEqual(["g", "h"]);
     list.shift();
     expect(list.toArray()).toEqual(["h"]);
-    node = list.unshift("g");
-    expect(node).toBe("g");
+    expect(list.unshift("g")).toBe("g");
     expect(list.toArray()).toEqual(["g", "h"]);
     list.shift();
     expect(list.toArray()).toEqual(["h"]);
-    node = list.shift();
+    list.shift();
     expect(list.toArray()).toEqual([]);
-    node = list.shift();
-    expect(node).toBe(null);
+    expect(list.shift()).toBe(null);
     expect(list.toArray()).toEqual([]);
   });
 

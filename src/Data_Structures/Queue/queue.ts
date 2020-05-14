@@ -1,6 +1,6 @@
 import { LinkedList } from "../Linked_List/linked-list";
 
-export class Stack {
+export class Queue {
   private list: LinkedList;
 
   constructor(...items: any[]) {
@@ -8,17 +8,17 @@ export class Stack {
     items.map((item) => this.list.push(item));
   }
 
-  push(...items: any[]) {
+  enqueue(...items: any[]) {
     items.map((item) => this.list.push(item));
     return this.list.length;
   }
 
-  pop() {
-    return this.list.pop();
+  dequeue() {
+    return this.list.shift();
   }
 
   peek() {
-    return this.list.tail?.value;
+    return this.list.head?.value;
   }
 
   get length() {

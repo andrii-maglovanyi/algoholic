@@ -14,17 +14,22 @@ describe("Stack", () => {
   });
 
   test("Should dress lower body in the right order", () => {
-    const lowerBodyStack = new Stack();
+    const stack = new Stack();
 
-    lowerBodyStack.push("Underwear");
-    lowerBodyStack.push("Socks");
-    lowerBodyStack.push("Pants");
-    lowerBodyStack.push("Shoes");
+    stack.push("Underwear");
+    stack.push("Socks");
+    stack.push("Pants");
+    stack.push("Shoes");
 
-    expect(lowerBodyStack.peek()).toBe("Shoes");
-    lowerBodyStack.pop();
-    expect(lowerBodyStack.peek()).toBe("Pants");
-    lowerBodyStack.pop();
-    expect(lowerBodyStack.length).toBe(2);
+    expect(stack.peek()).toBe("Shoes");
+    expect(stack.pop()).toBe("Shoes");
+    expect(stack.peek()).toBe("Pants");
+    stack.pop();
+    expect(stack.length).toBe(2);
+    stack.pop();
+    expect(stack.pop()).toBe("Underwear");
+    expect(stack.length).toBe(0);
+    expect(stack.isEmpty()).toBeTruthy();
+    expect(stack.pop()).toBeNull();
   });
 });
