@@ -1,7 +1,5 @@
-/**
- * Time O(n^2)
- * Space O(1)
- */
+// O(n^2) time
+// O(1) space
 const findSum = (array: number[], sum: number) => {
   let pointerA = 0;
   let pointerB = 1;
@@ -22,10 +20,8 @@ const findSum = (array: number[], sum: number) => {
   return -1;
 };
 
-/**
- * Time O(nlogn) (depends on a sorting algorithm)
- * Space O(n)
- */
+// Time O(n*Log(n)) (depends on a sorting algorithm)
+// Space O(n) (because we clone sorted array, otherwise it's O(1))
 const sortAndFindSum = (array: number[], sum: number) => {
   const sortedArray = [...array].sort((a, b) => a - b);
   let pointerA = 0;
@@ -33,7 +29,6 @@ const sortAndFindSum = (array: number[], sum: number) => {
 
   while (pointerA < pointerB) {
     const currentSum = sortedArray[pointerA] + sortedArray[pointerB];
-
     if (currentSum === sum) {
       return [sortedArray[pointerA], sortedArray[pointerB]];
     }
@@ -48,21 +43,19 @@ const sortAndFindSum = (array: number[], sum: number) => {
   return -1;
 };
 
-/**
- * Time O(n)
- * Space O(n)
- */
+// Time O(n)
+// Space O(n)
 const findSumWithSet = (array: number[], sum: number) => {
   const set = new Set();
   let result: number | [number, number] = -1;
 
   array.forEach((value) => {
     const diff = sum - value;
-    if (set.has(value)) {
+    if (set.has(diff)) {
       result = [diff, value];
     }
 
-    set.add(diff);
+    set.add(value);
   });
 
   return result;
