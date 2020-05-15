@@ -1,14 +1,14 @@
 // TODO: add shift, unshift method
 
-class Node {
-  public next: Node | null = null;
+class Node<T> {
+  public next: Node<T> | null = null;
 
-  constructor(public value: any) {}
+  constructor(public value: T) {}
 }
 
-export class LinkedList {
-  public head: Node | null = null;
-  public tail?: Node | null = null;
+export class LinkedList<T> {
+  public head: Node<T> | null = null;
+  public tail?: Node<T> | null = null;
   public length: number = 0;
 
   delete(index: number) {
@@ -48,7 +48,7 @@ export class LinkedList {
     return deleted;
   }
 
-  find(value: any) {
+  find(value: T) {
     let current = this.head;
 
     while (current) {
@@ -120,7 +120,7 @@ export class LinkedList {
     return node?.value;
   }
 
-  push(value: any) {
+  push(value: T) {
     const node = new Node(value);
 
     if (this.head && this.tail) {
@@ -185,7 +185,7 @@ export class LinkedList {
     return values;
   }
 
-  unshift(value: any) {
+  unshift(value: T) {
     const node = new Node(value);
 
     if (this.head === null) {

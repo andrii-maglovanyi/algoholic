@@ -1,14 +1,14 @@
 import { LinkedList } from "../Linked_List/linked-list";
 
-export class Stack {
-  private list: LinkedList;
+export class Stack<T> {
+  private list: LinkedList<T>;
 
-  constructor(...items: any[]) {
+  constructor(...items: T[]) {
     this.list = new LinkedList();
     items.map((item) => this.list.push(item));
   }
 
-  push(...items: any[]) {
+  push(...items: T[]) {
     items.map((item) => this.list.push(item));
     return this.list.length;
   }

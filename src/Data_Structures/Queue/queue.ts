@@ -1,14 +1,14 @@
 import { LinkedList } from "../Linked_List/linked-list";
 
-export class Queue {
-  private list: LinkedList;
+export class Queue<T> {
+  private list: LinkedList<T>;
 
-  constructor(...items: any[]) {
+  constructor(...items: T[]) {
     this.list = new LinkedList();
     items.map((item) => this.list.push(item));
   }
 
-  enqueue(...items: any[]) {
+  enqueue(...items: T[]) {
     items.map((item) => this.list.push(item));
     return this.list.length;
   }
