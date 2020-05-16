@@ -14,7 +14,7 @@ export class Queue<T> {
   }
 
   dequeue() {
-    return this.list.shift();
+    return this.list.shift()?.value;
   }
 
   peek() {

@@ -1,5 +1,3 @@
-// TODO: add shift, unshift method
-
 class Node<T> {
   public next: Node<T> | null = null;
 
@@ -8,11 +6,11 @@ class Node<T> {
 
 export class LinkedList<T> {
   public head: Node<T> | null = null;
-  public tail?: Node<T> | null = null;
+  public tail: Node<T> | null = null;
   public length: number = 0;
 
   delete(index: number) {
-    if (!this.head || index < 0 || index > this.length - 1) {
+    if (!this.head || index < 0 || index >= this.length) {
       return null;
     }
 
@@ -81,7 +79,7 @@ export class LinkedList<T> {
       }
     }
 
-    return current?.value;
+    return current;
   }
 
   isEmpty() {
@@ -99,8 +97,8 @@ export class LinkedList<T> {
       this.head = null;
       this.tail = null;
     } else {
-      let current = this.head;
       let penultimate;
+      let current = this.head;
       while (current) {
         if (current.next === this.tail) {
           penultimate = current;
@@ -117,17 +115,17 @@ export class LinkedList<T> {
     }
 
     this.length--;
-    return node?.value;
+    return node;
   }
 
   push(value: T) {
     const node = new Node(value);
 
-    if (this.head && this.tail) {
-      this.tail.next = node;
+    if (this.tail === null) {
+      this.head = node;
       this.tail = node;
     } else {
-      this.head = node;
+      this.tail.next = node;
       this.tail = node;
     }
 
@@ -170,7 +168,7 @@ export class LinkedList<T> {
 
     this.length--;
 
-    return node?.value;
+    return node;
   }
 
   toArray() {
@@ -198,6 +196,6 @@ export class LinkedList<T> {
 
     this.length++;
 
-    return node.value;
+    return node;
   }
 }

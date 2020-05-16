@@ -30,6 +30,6 @@ describe("Stack", () => {
     expect(stack.pop()).toBe("Underwear");
     expect(stack.length).toBe(0);
     expect(stack.isEmpty()).toBeTruthy();
-    expect(stack.pop()).toBeNull();
+    expect(stack.pop()).toBeUndefined();
   });
 });

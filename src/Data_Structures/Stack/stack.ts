@@ -14,7 +14,7 @@ export class Stack<T> {
   }
 
   pop() {
-    return this.list.pop();
+    return this.list.pop()?.value;
   }
 
   peek() {

@@ -1,9 +1,5 @@
 A **Graph** is a non-linear data structure consisting of nodes and edges. The nodes are sometimes also referred to as vertices and the edges are lines or arcs that connect any two nodes in the graph.
 
-| complexity | popularity |
-| :--------: | :--------: |
-|   `★★★`    |   `★★★`    |
-
 Graphs can be (**directed** or **undirected**) and (**weighted** or **unweighted**):
 
 ![alt text][graphs]

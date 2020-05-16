@@ -25,7 +25,7 @@ test("Should create a new empty queue and add items to it", () => {
   queue.dequeue();
   expect(queue.peek()).toBe("Be happy!");
   queue.dequeue();
-  expect(queue.dequeue()).toBeNull();
+  expect(queue.dequeue()).toBeUndefined();
   expect(queue.isEmpty()).toBeTruthy();
   expect(queue.length).toBe(0);
 });
