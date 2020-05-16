@@ -14,16 +14,18 @@ test("Should dequeue item from the right", () => {
 test("Should create a new empty queue and add items to it", () => {
   const queue = new Queue();
   expect(queue.isEmpty()).toBeTruthy();
-  queue.enqueue("Learn data structures.");
-  queue.enqueue("Find a job of dream.");
-  queue.enqueue("Be happy!");
 
-  expect(queue.peek()).toBe("Learn data structures.");
-  expect(queue.dequeue()).toBe("Learn data structures.");
-  expect(queue.peek()).toBe("Find a job of dream.");
+  queue.enqueue("a");
+  queue.enqueue("b");
+  queue.enqueue("c");
+  expect(queue.peek()).toBe("a");
+  expect(queue.dequeue()).toBe("a");
+  expect(queue.peek()).toBe("b");
   expect(queue.length).toBe(2);
+
   queue.dequeue();
-  expect(queue.peek()).toBe("Be happy!");
+  expect(queue.peek()).toBe("c");
+
   queue.dequeue();
   expect(queue.dequeue()).toBeUndefined();
   expect(queue.isEmpty()).toBeTruthy();
