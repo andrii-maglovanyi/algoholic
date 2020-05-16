@@ -18,8 +18,6 @@ class Vertex {
     } else {
       this.edges[key] = edge;
     }
-
-    this.edges[key] = edge;
   }
 
   removeNeighbor(vertex: Vertex) {
@@ -95,6 +93,15 @@ export class Graph {
     }
   }
 
+  getEdge(vertexAKey: Value, vertexBKey: Value) {
+    const vertexA = this.getVertex(vertexAKey);
+    const vertexB = this.getVertex(vertexBKey);
+
+    if (vertexA && vertexB) {
+      return vertexA.edges[Edge.getKey(vertexA, vertexB)];
+    }
+  }
+
   getAllEdges() {
     return this.vertices.reduce(
       (edges, vertex) => [
@@ -103,15 +110,6 @@ export class Graph {
       ],
       [] as Edge[]
     );
-  }
-
-  getEdge(vertexAKey: Value, vertexBKey: Value) {
-    const vertexA = this.getVertex(vertexAKey);
-    const vertexB = this.getVertex(vertexBKey);
-
-    if (vertexA && vertexB) {
-      return vertexA.edges[Edge.getKey(vertexA, vertexB)];
-    }
   }
 
   removeEdge(vertexAKey: Value, vertexBKey: Value) {

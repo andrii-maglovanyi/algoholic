@@ -20,7 +20,7 @@ class BinaryTree:
     # Levelorder: This traverses nodes by levels instead of sub-trees. First, visit the root node; then visit all children of the root node- left to right.
     # Subsequently, go down levels till you reach the node that has no children- the leaf nodes.
 
-    def breadthFirstTraversal(self, callback):
+    def breadth_first_traversal(self, callback):
         queue = [self]
         while queue:
             root = queue.pop(0)
@@ -34,35 +34,35 @@ class BinaryTree:
     # Preorder: Visit the root first, then traverse the left sub-tree, and then the right sub-tree.
     # Inorder: First, you traverse the left child and its sub-tree, visit the root and then the right child and its sub-tree.
     # Postorder: Traverse the left sub-tree, then traverse the right sub-tree and then visit the root node.
-    def depthFirstTraversal(self, order, callback):
+    def depth_first_traversal(self, order, callback):
         if order == "pre":
             callback(self.value)
         if self.left is not None:
-            self.left.depthFirstTraversal(order, callback)
+            self.left.depth_first_traversal(order, callback)
         if order == "in":
             callback(self.value)
         if self.right is not None:
-            self.right.depthFirstTraversal(order, callback)
+            self.right.depth_first_traversal(order, callback)
         if order == "post":
             callback(self.value)
 
-    def getMaxValue(self):
+    def get_max_value(self):
         if self.right is not None:
-            return self.right.getMaxValue()
+            return self.right.get_max_value()
         return self.value
 
-    def getMinValue(self):
+    def get_min_value(self):
         if self.left is not None:
-            return self.left.getMinValue()
+            return self.left.get_min_value()
         return self.value
 
     def insert(self, value):
         if value < self.value:
-            self.insertLeft(value)
+            self.insert_left(value)
         else:
-            self.insertRight(value)
+            self.insert_right(value)
 
-    def insertLeft(self, value):
+    def insert_left(self, value):
         if self.left is None:
             self.left = BinaryTree(value)
         else:
@@ -70,7 +70,7 @@ class BinaryTree:
 
         return self.left
 
-    def insertRight(self, value):
+    def insert_right(self, value):
         if self.right is None:
             self.right = BinaryTree(value)
         else:

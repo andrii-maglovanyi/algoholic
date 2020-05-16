@@ -19,11 +19,11 @@ class Stack:
     def peek(self):
         return getattr(self.list.tail, 'value', None)
 
-    def getLength(self):
+    def get_length(self):
         return self.list.length
 
-    def isEmpty(self):
-        return self.list.isEmpty()
+    def is_empty(self):
+        return self.list.is_empty()
 
-    def toList(self):
-        return self.list.toList()
+    def to_list(self):
+        return self.list.to_list()

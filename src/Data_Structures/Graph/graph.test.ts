@@ -30,37 +30,19 @@ beforeEach(() => {
   undirectedGraph = addVerticesAndEdges(new Graph(), vertices, edges);
 });
 
-// beforeEach(() => {
-//   const edges = [
-//     ["a", "b"],
-//     ["a", "e"],
-//     ["a", "f"],
-//     ["b", "d"],
-//     ["b", "e"],
-//     ["c", "b"],
-//     ["d", "c"],
-//     ["d", "e"],
-//   ];
-
-//   undirectedGraph = addVerticesAndEdges(new Graph(), vertices, edges);
-// });
-
 describe("Graph", () => {
   test("Should create and manipulate a directed graph", () => {
     expect(directedGraph.print()).toBe(
       "a => b e, b => c, c => d, d => f, e => d f, f => a"
     );
-
     expect(directedGraph.getVertex("b").key).toBe("b");
     expect(
       directedGraph.getVertex("b").neighbors.map(({ key }) => key)
     ).toEqual(["c"]);
-
     expect(directedGraph.getVertex("e").key).toBe("e");
     expect(
       directedGraph.getVertex("e").neighbors.map(({ key }) => key)
     ).toEqual(["d", "f"]);
-
     expect(directedGraph.getAllVertices().length).toBe(6);
     expect(directedGraph.getAllEdges().length).toBe(8);
 
@@ -70,10 +52,10 @@ describe("Graph", () => {
     expect(directedGraph.getAllVertices().length).toBe(5);
     expect(directedGraph.getAllEdges().length).toBe(6);
     expect(directedGraph.print()).toBe("a => b e, b, d => f, e => d f, f => a");
-
     expect(
       directedGraph.getVertex("a").neighbors.map(({ key }) => key)
     ).toEqual(["b", "e"]);
+
     directedGraph.removeEdge("a", "b");
     expect(
       directedGraph.getVertex("a").neighbors.map(({ key }) => key)
@@ -92,22 +74,18 @@ describe("Graph", () => {
 
     directedGraph.addEdge("g", "a");
     directedGraph.addEdge("d", "g");
-
     expect(directedGraph.getAllVertices().length).toBe(6);
     expect(directedGraph.getAllEdges().length).toBe(7);
     expect(directedGraph.print()).toBe(
       "a => e, b, d => f g, e => d f, f => a, g => a"
     );
-
     expect(
       directedGraph.getVertex("d").neighbors.map(({ key }) => key)
     ).toEqual(["f", "g"]);
-
     expect(
       directedGraph.getVertex("g").neighbors.map(({ key }) => key)
     ).toEqual(["a"]);
-
-    expect(undirectedGraph.getEdge("a", "f").key).toEqual("f-a");
+    expect(directedGraph.getEdge("d", "g").key).toEqual("d-g");
   });
 
   test("Should create and manipulate a undirected graph", () => {

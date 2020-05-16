@@ -69,11 +69,11 @@ class LinkedList:
 
         return current
 
-    def isEmpty(self):
+    def is_empty(self):
         return self.length == 0
 
     def pop(self):
-        if self.isEmpty():
+        if self.is_empty():
             return None
 
         node = self.tail
@@ -130,7 +130,7 @@ class LinkedList:
         return self
 
     def shift(self):
-        if self.isEmpty():
+        if self.is_empty():
             return None
 
         node = self.head
@@ -145,7 +145,7 @@ class LinkedList:
 
         return node
 
-    def toList(self):
+    def to_list(self):
         values = []
 
         current = self.head
