@@ -13,21 +13,24 @@ describe("Stack", () => {
     expect(stack.pop()).toBe(3);
   });
 
-  test("Should dress lower body in the right order", () => {
+  test("Should create a new empty stack and add items to it", () => {
     const stack = new Stack();
 
-    stack.push("Underwear");
-    stack.push("Socks");
-    stack.push("Pants");
-    stack.push("Shoes");
+    stack.push("a");
+    stack.push("b");
+    stack.push("c");
+    stack.push("d");
+    expect(stack.peek()).toBe("d");
+    expect(stack.pop()).toBe("d");
+    expect(stack.peek()).toBe("c");
+    expect(stack.length).toBe(3);
 
-    expect(stack.peek()).toBe("Shoes");
-    expect(stack.pop()).toBe("Shoes");
-    expect(stack.peek()).toBe("Pants");
     stack.pop();
+    expect(stack.peek()).toBe("b");
     expect(stack.length).toBe(2);
+
     stack.pop();
-    expect(stack.pop()).toBe("Underwear");
+    expect(stack.pop()).toBe("a");
     expect(stack.length).toBe(0);
     expect(stack.isEmpty()).toBeTruthy();
     expect(stack.pop()).toBeUndefined();
