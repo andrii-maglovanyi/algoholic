@@ -1,8 +1,8 @@
 // @ts-nocheck
-
+import { addVerticesAndEdges } from "@utils/graph";
 import { Graph } from "./graph";
 
-let directedGraph, undirectedGraph;
+let directedGraph, undirectedGraph, weightedGraph;
 const vertices = ["a", "b", "c", "d", "e", "f"];
 
 const edges = [
@@ -16,18 +16,16 @@ const edges = [
   ["f", "a"],
 ];
 
-const addVerticesAndEdges = (graph, vertices, edges) => {
-  vertices.forEach((vertex) => graph.addVertex(vertex));
-  edges.forEach(([vertexA, vertexB]) => {
-    graph.addEdge(vertexA, vertexB);
-  });
-
-  return graph;
-};
+const weights = [2, 11, 2, 3, 9, 5, 1, 4];
 
 beforeEach(() => {
   directedGraph = addVerticesAndEdges(new Graph(true), vertices, edges);
   undirectedGraph = addVerticesAndEdges(new Graph(), vertices, edges);
+  weightedGraph = addVerticesAndEdges(
+    new Graph(),
+    vertices,
+    edges.map((edge, index) => [...edge, weights[index]])
+  );
 });
 
 describe("Graph", () => {
@@ -228,5 +226,38 @@ describe("Graph", () => {
     expect(mock).toHaveBeenNthCalledWith(4, "d");
     expect(mock).toHaveBeenNthCalledWith(5, "b");
     expect(mock).toHaveBeenNthCalledWith(6, "c");
+  });
+
+  test("Should return adjacency matrix of unweighted graph", () => {
+    expect(undirectedGraph.getAdjacencyMatrix()).toEqual([
+      [0, 1, 0, 0, 1, 1],
+      [1, 0, 1, 0, 0, 0],
+      [0, 1, 0, 1, 0, 0],
+      [0, 0, 1, 0, 1, 1],
+      [1, 0, 0, 1, 0, 1],
+      [1, 0, 0, 1, 1, 0],
+    ]);
+  });
+
+  test("Should return adjacency matrix of weighted graph", () => {
+    expect(weightedGraph.getAdjacencyMatrix()).toEqual([
+      [0, 2, 0, 0, 11, 4],
+      [2, 0, 2, 0, 0, 0],
+      [0, 2, 0, 3, 0, 0],
+      [0, 0, 3, 0, 5, 9],
+      [11, 0, 0, 5, 0, 1],
+      [4, 0, 0, 9, 1, 0],
+    ]);
+  });
+
+  test("Should return adjacency list of unweighted graph", () => {
+    expect(undirectedGraph.getAdjacencyList()).toEqual({
+      a: ["b", "e", "f"],
+      b: ["a", "c"],
+      c: ["b", "d"],
+      d: ["c", "f", "e"],
+      e: ["a", "d", "f"],
+      f: ["d", "e", "a"],
+    });
   });
 });

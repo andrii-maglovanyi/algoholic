@@ -1,13 +1,12 @@
 import { Queue } from "../Queue/queue";
 import { Stack } from "../Stack/stack";
 
-type Value = string | number;
-type Callback = (value: Value) => any;
+type Callback<T> = (value: T) => any;
 
-class Vertex {
-  constructor(public key: any, public edges: { [key: string]: Edge } = {}) {}
+export class Vertex<T> {
+  constructor(public key: T, public edges: { [key: string]: Edge<T> } = {}) {}
 
-  addEdge(edge: Edge) {
+  addEdge(edge: Edge<T>) {
     const key = Edge.getKey(
       this,
       this.key === edge.vertexA.key ? edge.vertexB : edge.vertexA
@@ -20,7 +19,7 @@ class Vertex {
     }
   }
 
-  removeNeighbor(vertex: Vertex) {
+  removeNeighbor(vertex: Vertex<T>) {
     delete this.edges[Edge.getKey(this, vertex)];
   }
 
@@ -33,14 +32,14 @@ class Vertex {
   }
 }
 
-export class Edge {
+export class Edge<T> {
   constructor(
-    public vertexA: Vertex,
-    public vertexB: Vertex,
+    public vertexA: Vertex<T>,
+    public vertexB: Vertex<T>,
     public weight = 0
   ) {}
 
-  public static getKey(vertexA: Vertex, vertexB: Vertex) {
+  public static getKey<U>(vertexA: Vertex<U>, vertexB: Vertex<U>) {
     return `${vertexA.key}-${vertexB.key}`;
   }
 
@@ -49,14 +48,14 @@ export class Edge {
   }
 }
 
-export class Graph {
-  constructor(private directed = false, private vertices: Vertex[] = []) {}
+export class Graph<T> {
+  constructor(private directed = false, private vertices: Vertex<T>[] = []) {}
 
-  addVertex(key: Value) {
-    this.vertices.push(new Vertex(key));
+  addVertex(key: T) {
+    this.vertices.push(new Vertex<T>(key));
   }
 
-  getVertex(key: Value) {
+  getVertex(key: T) {
     return this.vertices.find((vertex) => vertex.key === key);
   }
 
@@ -64,7 +63,7 @@ export class Graph {
     return this.vertices;
   }
 
-  removeVertex(key: Value) {
+  removeVertex(key: T) {
     const vertexToRemove = this.getVertex(key);
     if (vertexToRemove) {
       const verticesToClean = this.directed
@@ -79,12 +78,12 @@ export class Graph {
     }
   }
 
-  addEdge(vertexAKey: Value, vertexBKey: Value) {
+  addEdge(vertexAKey: T, vertexBKey: T, weight: number | undefined) {
     const vertexA = this.getVertex(vertexAKey);
     const vertexB = this.getVertex(vertexBKey);
 
     if (vertexA && vertexB) {
-      const edge = new Edge(vertexA, vertexB);
+      const edge = new Edge(vertexA, vertexB, weight);
       vertexA.addEdge(edge);
 
       if (!this.directed) {
@@ -93,7 +92,7 @@ export class Graph {
     }
   }
 
-  getEdge(vertexAKey: Value, vertexBKey: Value) {
+  getEdge(vertexAKey: T, vertexBKey: T) {
     const vertexA = this.getVertex(vertexAKey);
     const vertexB = this.getVertex(vertexBKey);
 
@@ -108,11 +107,11 @@ export class Graph {
         ...edges,
         ...Object.values(vertex.edges).filter((edge) => !edges.includes(edge)),
       ],
-      [] as Edge[]
+      [] as Edge<T>[]
     );
   }
 
-  removeEdge(vertexAKey: Value, vertexBKey: Value) {
+  removeEdge(vertexAKey: T, vertexBKey: T) {
     const vertexA = this.getVertex(vertexAKey);
     const vertexB = this.getVertex(vertexBKey);
 
@@ -122,30 +121,15 @@ export class Graph {
     }
   }
 
-  print() {
-    return this.vertices
-      .map(({ key, neighbors }) => {
-        let result = key;
-        if (neighbors.length) {
-          result += ` => ${neighbors
-            .map((neighbor) => neighbor.key)
-            .join(" ")}`;
-        }
-
-        return result;
-      })
-      .join(", ");
-  }
-
   // Iterative breadth first uses queue to process vertices.
-  breadthFirstSearch(startingVertexKey: string, cb: Callback) {
+  breadthFirstSearch(startingVertexKey: T, cb: Callback<T>) {
     const startingVertex = this.getVertex(startingVertexKey);
     if (startingVertex) {
       const visited = new Set();
-      const queue = new Queue<Vertex>(startingVertex);
+      const queue = new Queue<Vertex<T>>(startingVertex);
 
       while (!queue.isEmpty()) {
-        const vertex = queue.dequeue() as Vertex;
+        const vertex = queue.dequeue() as Vertex<T>;
         if (visited.has(vertex.key)) {
           continue;
         }
@@ -153,7 +137,7 @@ export class Graph {
         visited.add(vertex.key);
         cb(vertex.key);
 
-        vertex.neighbors.forEach((vertex: Vertex) => {
+        vertex.neighbors.forEach((vertex: Vertex<T>) => {
           if (!visited.has(vertex.key)) {
             queue.enqueue(vertex);
           }
@@ -162,13 +146,13 @@ export class Graph {
     }
   }
 
-  recursiveDepthFirstSearch(startingVertexKey: string, cb: Callback) {
+  recursiveDepthFirstSearch(startingVertexKey: T, cb: Callback<T>) {
     const startingVertex = this.getVertex(startingVertexKey);
 
     if (startingVertex) {
       const visited = new Set();
 
-      (function explore(vertex: Vertex) {
+      (function explore(vertex: Vertex<T>) {
         visited.add(vertex.key);
         cb(vertex.key);
 
@@ -183,15 +167,15 @@ export class Graph {
 
   // Iterative search goes different direction in comparison with recursive.
   // Iterative depth first uses stack to process vertices.
-  iterativeDepthFirstSearch(startingVertexKey: string, cb: Callback) {
+  iterativeDepthFirstSearch(startingVertexKey: T, cb: Callback<T>) {
     const startingVertex = this.getVertex(startingVertexKey);
 
     if (startingVertex) {
       const visited = new Set();
-      const stack = new Stack<Vertex>(startingVertex);
+      const stack = new Stack<Vertex<T>>(startingVertex);
 
       while (!stack.isEmpty()) {
-        const vertex = stack.pop() as Vertex;
+        const vertex = stack.pop() as Vertex<T>;
         if (visited.has(vertex.key)) {
           continue;
         }
@@ -206,5 +190,52 @@ export class Graph {
         });
       }
     }
+  }
+
+  getAdjacencyList() {
+    return this.vertices.reduce((list, { key, neighbors }) => {
+      list[String(key)] = neighbors.map(({ key }) => key);
+      return list;
+    }, {} as { [key: string]: T[] });
+  }
+
+  getAdjacencyMatrix() {
+    const indexes = this.getVerticesIndexes();
+
+    const matrix = Array(this.vertices.length)
+      .fill(null)
+      .map(() => Array(this.vertices.length).fill(0));
+
+    this.vertices.forEach((vertex, index) => {
+      vertex.neighbors.forEach((neighbor) => {
+        const neighborIndex = indexes[String(neighbor.key)];
+        const weight = this.getEdge(vertex.key, neighbor.key)?.weight || 1;
+        matrix[index][neighborIndex] = weight;
+      });
+    });
+
+    return matrix;
+  }
+
+  print() {
+    return this.vertices
+      .map(({ key, neighbors }) => {
+        let result = String(key);
+        if (neighbors.length) {
+          result += ` => ${neighbors
+            .map((neighbor) => neighbor.key)
+            .join(" ")}`;
+        }
+
+        return result;
+      })
+      .join(", ");
+  }
+
+  private getVerticesIndexes() {
+    return this.vertices.reduce(
+      (indexes, { key }, index) => ({ ...indexes, [String(key)]: index }),
+      {} as { [key: string]: number }
+    );
   }
 }

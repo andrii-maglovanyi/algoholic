@@ -19,12 +19,12 @@ Graphs can be (**directed** or **undirected**) and (**weighted** or **unweighted
 
 ```javascript
 {
-    A: ["B", "F", "E"],
+    A: ["B", "E", "F"],
     B: ["A", "C"],
     C: ["B", "D"],
-    D: ["C", "E", "F"],
-    E: ["D", "F", "A"],
-    F: ["E", "A", "D"]
+    D: ["C", "F", "E"],
+    E: ["A", "D", "F"],
+    F: ["D", "E", "A"]
 }
 ```
 
