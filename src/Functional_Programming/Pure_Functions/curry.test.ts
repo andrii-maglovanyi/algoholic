@@ -12,9 +12,10 @@ describe("Curry", () => {
     expect(name("Stephen")("Hawking").values()).toEqual(["Stephen", "Hawking"]);
     expect(() => name("Stephen")(true)).toThrow(TypeError);
 
+    const date = new Date();
     expect(checkType(String)("Haskell")).toBe("Haskell");
     expect(checkType(Number)(3)).toBe(3);
-    expect(checkType(Date)(new Date())).toEqual(new Date());
+    expect(checkType(Date)(date)).toEqual(date);
     expect(checkType(Object)({})).toEqual({});
     expect(() => checkType(String)(42)).toThrow(TypeError);
   });

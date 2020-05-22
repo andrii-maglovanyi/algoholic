@@ -1,11 +1,10 @@
-import { writeFile, existsSync, readFileSync, unlink } from "fs";
+import { writeFile, existsSync, readFileSync, unlinkSync } from "fs";
 
 const FILE_NAME = "localStorage.json";
 
 class LocalStorage {
   constructor(private items: { [key: string]: any } = {}) {
     if (existsSync(FILE_NAME)) {
-      console.log(`Loading items from ${FILE_NAME}`);
       const file = readFileSync(FILE_NAME, { encoding: "utf8", flag: "r" });
       this.items = JSON.parse(file);
     } else {
@@ -28,9 +27,7 @@ class LocalStorage {
 
   clear() {
     this.items = {};
-    unlink(FILE_NAME, () => {
-      console.log(`${FILE_NAME} removed.`);
-    });
+    unlinkSync(FILE_NAME);
   }
 }
 
