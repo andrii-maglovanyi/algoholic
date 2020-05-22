@@ -15,3 +15,8 @@ The **Composite pattern** allows the creation of objects with properties that ar
 ## Cons
 
 - It might be difficult to provide a common interface for classes whose functionality differs too much. In certain scenarios, you’d need to overgeneralize the component interface, making it harder to comprehend.
+
+##
+
+- File system
+- Binary tree
