@@ -18,3 +18,4 @@ The **Chain of Responsibility** pattern provides a chain of loosely coupled obje
 ## Examples
 
 - Event-bubbling. Event propagates through a series of nested controls one of which may choose to handle the event.
+- Prototypical inheritance.

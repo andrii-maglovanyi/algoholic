@@ -1,6 +1,6 @@
 import { CatalogItem, CatalogGroup } from "./catalog";
 
-describe("Catalog", () => {
+describe("Composite: Catalog example", () => {
   test("Should print the full catalog", () => {
     const boots = new CatalogItem("Leather Boots", 79.99);
     const sneakers = new CatalogItem("Sneakers", 39.99);
