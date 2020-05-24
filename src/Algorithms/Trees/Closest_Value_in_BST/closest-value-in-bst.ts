@@ -1,4 +1,4 @@
-import { BinaryTree } from "../../Data_Structures/Binary_Tree/binary-tree";
+import { BinaryTree } from "@Data_Structures/Binary_Tree/binary-tree";
 
 // Average O(log(n)), worst O(n) time
 // Average O(log(n)), worst O(n) space

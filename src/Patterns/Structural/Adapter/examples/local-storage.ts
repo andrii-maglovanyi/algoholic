@@ -1,6 +1,8 @@
+import { resolve } from "path";
+
 import { writeFile, existsSync, readFileSync, unlinkSync } from "fs";
 
-const FILE_NAME = "localStorage.json";
+const FILE_NAME = resolve(__dirname, "localStorage.json");
 
 class LocalStorage {
   constructor(private items: { [key: string]: any } = {}) {
@@ -22,7 +24,7 @@ class LocalStorage {
 
   setItem(key: string, value: any) {
     this.items[key] = value;
-    writeFile(FILE_NAME, JSON.stringify(this.items), console.error);
+    writeFile(FILE_NAME, JSON.stringify(this.items), (error) => {});
   }
 
   clear() {

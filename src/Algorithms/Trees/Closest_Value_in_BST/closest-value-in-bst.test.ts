@@ -2,7 +2,7 @@
 
 import { TestSolutions } from "@utils/test-solutions";
 
-import { BinaryTree } from "../../Data_Structures/Binary_Tree/binary-tree";
+import { BinaryTree } from "@Data_Structures/Binary_Tree/binary-tree";
 
 import { solutions } from "./closest-value-in-bst";
 
