@@ -4,13 +4,13 @@ import _ from "lodash";
 import R from "ramda";
 import { identity } from "rxjs";
 
-import { identity as customIdentity } from "./identity";
+import { I } from "./I";
 
-describe("Identity", () => {
+describe("I (identity)", () => {
   const object = { name: "Mark" };
 
   test("Custom implementation", () => {
-    expect(customIdentity(object)).toEqual(object);
+    expect(I(object)).toEqual(object);
   });
 
   test("_.identity", () => {
