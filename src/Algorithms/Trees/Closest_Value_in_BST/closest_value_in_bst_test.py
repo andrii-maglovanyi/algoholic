@@ -1,4 +1,4 @@
-from closest_value_in_bst import findClosestValueValueRecursively, findClosestValueValueIteratively
+from closest_value_in_bst import find_closest_value_recursively, find_closest_value_iteratively
 
 from src.Data_Structures.Binary_Tree.binary_tree import BinaryTree
 
@@ -14,15 +14,15 @@ for value in list:
     binaryTreeB.insert(value)
 
 
-def runAssertions(solution):
+def run_assertions(solution):
     assert solution(binaryTreeA, 12) == 13
     assert solution(binaryTreeA, 15) == 15
     assert solution(binaryTreeB, 7) == 8
 
 
-def test_findClosestValueValueRecursively():
-    runAssertions(findClosestValueValueRecursively)
+def test_find_closest_value_recursively():
+    run_assertions(find_closest_value_recursively)
 
 
-def test_findClosestValueValueIteratively():
-    runAssertions(findClosestValueValueIteratively)
+def test_find_closest_value_iteratively():
+    run_assertions(find_closest_value_iteratively)

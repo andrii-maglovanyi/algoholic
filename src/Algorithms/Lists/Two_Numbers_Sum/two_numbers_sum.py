@@ -2,7 +2,7 @@
 
 # O(n^2) time
 # O(1) space
-def findSum(array, targetSum):
+def find_sum(array, targetSum):
     for i in range(len(array) - 1):
         firstNum = array[i]
         for j in range(i+1, len(array)):
@@ -14,7 +14,7 @@ def findSum(array, targetSum):
 
 # O(nlog(n)) time (depends on a sorting algorithm)
 # O(n) space (because we clone sorted array, otherwise it's O(1))
-def sortAndFindSum(array, targetSum):
+def sort_and_find_sum(array, targetSum):
     sortedArray = array.copy()
     sortedArray.sort()
     pointerA = 0
@@ -34,7 +34,7 @@ def sortAndFindSum(array, targetSum):
 
 # O(n) time
 # O(n) space
-def findSumWithSet(array, targetSum):
+def find_sum_with_set(array, targetSum):
     nums = {}
     for num in array:
         if targetSum - num in nums:

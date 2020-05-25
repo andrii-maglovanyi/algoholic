@@ -2,11 +2,11 @@
 
 # Average O(log(n)), worst O(n) time
 # Average O(log(n)), worst O(n) space
-def findClosestValueValueRecursively(tree, targetValue):
-    return findclosestValueInSubtree(tree, targetValue, float("inf"))
+def find_closest_value_recursively(tree, targetValue):
+    return find_closest_value_in_subtree(tree, targetValue, float("inf"))
 
 
-def findclosestValueInSubtree(tree, targetValue, closestValue):
+def find_closest_value_in_subtree(tree, targetValue, closestValue):
     if tree is None:
         return closestValue
 
@@ -14,16 +14,16 @@ def findclosestValueInSubtree(tree, targetValue, closestValue):
         closestValue = tree.value
 
     if targetValue < tree.value:
-        return findclosestValueInSubtree(tree.left, targetValue, closestValue)
+        return find_closest_value_in_subtree(tree.left, targetValue, closestValue)
     elif targetValue > tree.value:
-        return findclosestValueInSubtree(tree.right, targetValue, closestValue)
+        return find_closest_value_in_subtree(tree.right, targetValue, closestValue)
     else:
         return closestValue
 
 
 # Average O(log(n)), worst O(n) time
 # O(1) space
-def findClosestValueValueIteratively(tree, targetValue):
+def find_closest_value_iteratively(tree, targetValue):
     current = tree
     closestValue = current.value
 
