@@ -83,8 +83,8 @@ const withFlexibleMemoization = memoize((num: number) => {
  * The most optimal solution in terms of time and space complexity would be
  * using a simple loop O(n) time, const space.
  *
- * Time O(n)
- * Space O(1)
+ * O(n) time
+ * O(1) space
  */
 const simpleLoop = (num: number) => {
   let a = 1;
