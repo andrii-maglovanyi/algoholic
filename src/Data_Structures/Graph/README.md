@@ -2,7 +2,7 @@ A **Graph** is a non-linear data structure consisting of nodes and edges. The no
 
 Graphs can be (**directed** or **undirected**) and (**weighted** or **unweighted**):
 
-![alt text][graphs]
+![graphs]
 
 ### Adjacency Matrix
 
