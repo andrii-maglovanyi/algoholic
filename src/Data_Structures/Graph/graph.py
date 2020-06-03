@@ -96,4 +96,4 @@ class Graph:
     def print(self):
         return ", ".join(
             list(map(lambda vertex: f'{vertex.key} => {" ".join(list(map(lambda neighbor: neighbor.key, vertex.get_neighbors())))}' if len(
-                vertex.get_neighbors()) is not 0 else vertex.key, self.vertices)))
+                vertex.get_neighbors()) != 0 else vertex.key, self.vertices)))

@@ -1,12 +1,12 @@
-name: Unit Test
+name: Algoholic
 
 on:
   push:
     branches: [master]
 
 jobs:
-  test:
-    name: Test
+  typescript:
+    name: Typescript
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -18,6 +18,11 @@ jobs:
       - name: Test with jest
         run: npm test
 
+  python:
+    name: Python
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
       - name: Set up Python 3.x
         uses: actions/setup-python@v2
         with:
@@ -29,3 +34,5 @@ jobs:
           pip install pytest
       - name: Test with pytest
         run: python -m pytest
+      - name: Python Syntax Checker
+        uses: cclauss/Find-Python-syntax-errors-action@v0.2.0
