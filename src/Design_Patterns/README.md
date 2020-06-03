@@ -1,3 +1,7 @@
+# Design Patterns
+
+Tried-and-true design solutions that have been found to solve specific problems.
+
 A **design pattern** is a general repeatable solution to a commonly occurring problem in software design.
 
 > Each patterns describes a problem which occurs over and over again in our environment, and then describes the core of the solution to that problem, in such a way that you can use this solution a million times over, without ever doing it the same way twice.
