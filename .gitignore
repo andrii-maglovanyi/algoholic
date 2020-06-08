@@ -3,3 +3,8 @@ node_modules/
 __pycache__/
 *.py[cod]
 *$py.class
+
+# elm-package generated files
+elm-stuff
+# elm-repl generated files
+repl-temp-*

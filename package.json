@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "elm-test": "elm-test 'src/**/*Test.elm'"
   },
   "keywords": [],
   "author": "",
@@ -20,6 +21,7 @@
     "typescript": "^3.8.3"
   },
   "dependencies": {
+    "elm-test": "^0.19.1-revision2",
     "lodash": "^4.17.15",
     "ramda": "^0.27.0",
     "rxjs": "^6.5.5"

@@ -36,3 +36,20 @@ jobs:
         run: python -m pytest
       - name: Python Syntax Checker
         uses: cclauss/Find-Python-syntax-errors-action@v0.2.0
+
+  elm:
+    name: Elm
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: "14.x"
+      - name: Set up Elm
+        uses: jorelali/setup-elm@v2
+        with:
+          elm-version: 0.19.1
+      - run: npm ci
+      - name: Test with elm-test
+        run: npm run elm-test
