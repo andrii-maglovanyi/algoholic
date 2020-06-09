@@ -8,3 +8,22 @@ __pycache__/
 elm-stuff
 # elm-repl generated files
 repl-temp-*
+
+#Added by cargo
+
+/target
+
+
+#Added by cargo
+#
+#already existing elements were commented out
+
+#/target
+
+
+#Added by cargo
+#
+#already existing elements were commented out
+
+#/target
+Cargo.lock
