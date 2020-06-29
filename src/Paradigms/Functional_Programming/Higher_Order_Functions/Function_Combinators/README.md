@@ -2,7 +2,7 @@
 
 Combinatory logic is a model by which logical statements can be described as a combination of a small number of primitive elements called combinators. Each combinator is like a function or lambda abstraction, but without any free variables.
 
-Combinatory logic forces you to use pointfree programming style to write useful programs.
+Combinatory logic forces you to use point-free programming style to write useful programs.
 
 A combinator is a an expression with no free variables. That is, it is either a constant, or a lambda expression which only refers to its bound variables.
 
@@ -53,6 +53,50 @@ In simple terms, this is a function that executes any effect but ignores its out
 - compose
 - pipe
 
-* alternation
-* sequence
-* fork
+### **OR combinator** (alternation)
+
+Allows to perform simple conditional logic - takes two functions and returns the result of the first one if the value is defined (not `false`, `null` or `undefined`); otherwise it returns the result of second function.
+
+```javascript
+const alt = (fnOne, fnTwo) => (val) => fnOne(val) || fnTwo(val);
+```
+
+or
+
+```javascript
+const alt = R.curry((fnOne, fnTwo, val) => fnOne(val) || fnTwo(val));
+```
+
+### **S combinator** (sequence)
+
+Used to loop over a sequence of functions. It takes two or more functions as parameters and returns a new function, which runs all of them in sequence against the same value:
+
+```javascript
+const seq = function (/*funcs*/) {
+  const funcs = Array.prototype.slice.call(arguments);
+  return function (val) {
+    funcs.forEach((fn) => {
+      fn(val);
+    });
+  };
+};
+```
+
+### **??? combinator** (fork, join)
+
+Useful when you need to process a single resource in two different ways and then combine the results. Takes three functions; a join function and two terminal functions that process the provided input. The result of each forked function is passed to `join` function of two arguments.
+
+```javascript
+const fork = (join, fnOne, fnTwo) => (val) => join(fnOne(val), fnTwo(val));
+```
+
+As example:
+
+```javascript
+const computeAverageGrade = R.compose(
+  getLetterGrade,
+  fork(R.divide, R.sum, R.length)
+);
+
+computeAverageGrade([99, 80, 89]); // "B"
+```

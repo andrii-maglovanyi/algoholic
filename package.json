@@ -10,15 +10,15 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "@types/jest": "^25.2.1",
-    "@types/lodash": "^4.14.150",
-    "@types/node": "^14.0.5",
-    "@types/ramda": "^0.27.4",
-    "jest": "^25.5.3",
+    "@types/jest": "^26.0.3",
+    "@types/lodash": "^4.14.157",
+    "@types/node": "^14.0.14",
+    "@types/ramda": "^0.27.6",
+    "jest": "^26.1.0",
     "prettier": "^2.0.5",
-    "prettier-eslint": "^9.0.1",
-    "ts-jest": "^25.5.0",
-    "typescript": "^3.8.3"
+    "prettier-eslint": "^11.0.0",
+    "ts-jest": "^26.1.1",
+    "typescript": "^3.9.5"
   },
   "dependencies": {
     "elm-test": "^0.19.1-revision2",

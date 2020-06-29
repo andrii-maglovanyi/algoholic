@@ -1,4 +1,4 @@
-import { Graph, Vertex, Edge } from "@Data_Structures/Graph/graph";
+import { Graph } from "@Data_Structures/Graph/graph";
 
 export const addVerticesAndEdges = <T>(
   graph: Graph<T>,

@@ -1,4 +1,4 @@
-import { curryTwo } from "../Pure_Functions/curry";
+import { curryTwo } from "../Higher_Order_Functions/curry";
 import R from "ramda";
 
 interface LooseObject {
