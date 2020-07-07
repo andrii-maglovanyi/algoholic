@@ -74,3 +74,16 @@ This is the points-free style, defining functions without ever making direct ref
 There are plenty of reasons to like it, but the most important one might just be the simplicity. There is a great deal to be said for elegant, readable code.
 
 Points-free programming brings functional JavaScript code closer to that of Haskell and the Unix philosophy. It can be used to increase the level of abstraction by forcing you to think of composing high-level components instead of details of function evaluation.
+
+## Transducer
+
+Transducer is a function that accepts a `transformer` and returns a `transformer` and can be composed directly. It's an efficient way to transform list of data by reducing iterations for every transformation to just one.
+
+A transducer will loop over the list and then perform all the transformations at once on each value. The transformed value is then passed back to the main reducing function.
+
+The `transduce` function is really just a `reduce` function with an additional argument upfront.
+
+```javascript
+R.reduce(iteratorFunction, [], list);
+R.transduce(transformationFunction, iteratorFunction, [], list);
+```
