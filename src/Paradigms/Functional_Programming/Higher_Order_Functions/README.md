@@ -79,6 +79,9 @@ Points-free programming brings functional JavaScript code closer to that of Hask
 
 Transducer is a function that accepts a `transformer` and returns a `transformer` and can be composed directly. It's an efficient way to transform list of data by reducing iterations for every transformation to just one.
 
+![chained-transformation]
+![transducer]
+
 A transducer will loop over the list and then perform all the transformations at once on each value. The transformed value is then passed back to the main reducing function.
 
 The `transduce` function is really just a `reduce` function with an additional argument upfront.
@@ -87,3 +90,6 @@ The `transduce` function is really just a `reduce` function with an additional a
 R.reduce(iteratorFunction, [], list);
 R.transduce(transformationFunction, iteratorFunction, [], list);
 ```
+
+[chained-transformation]: chained-transformation.gif "Chained Transformation"
+[transducer]: transducer.gif "Transducer"

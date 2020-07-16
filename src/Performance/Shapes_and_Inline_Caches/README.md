@@ -6,8 +6,7 @@
 
 JavaScript is a dynamically-typed programming language, where objects can have properties added to, and deleted from at runtime. Such dynamism prevents JavaScript compilers from constructing a fixed object layout before execution.
 
-However, to generate efficient code, it is crucial for the compiler to have some notion of object type. To resolve this conflict, JavaScript implementations dynamically create Hidden Classes (Shapes) for objects. The basic idea is to assign each object a hidden class, which contains information about the current layout
-of the object. Objects created in the same way are assigned the same hidden class. Grouping objects in this manner helps to enable optimizations.
+However, to generate efficient code, it is crucial for the compiler to have some notion of object type. To resolve this conflict, JavaScript implementations dynamically create Hidden Classes (Shapes) for objects. The basic idea is to assign each object a hidden class, which contains information about the current layout of the object. Objects created in the same way are assigned the same hidden class. Grouping objects in this manner helps to enable optimizations.
 
 ## Inline Caching (IC)
 
