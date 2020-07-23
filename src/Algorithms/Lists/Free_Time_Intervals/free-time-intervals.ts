@@ -13,10 +13,8 @@ interface IMeetings {
   meetingDuration: number;
 }
 
-/**
- * Time O(nlogn)
- * Space O(n)
- */
+// O(n*Log(n)) time
+// O(n) space
 const meetingsSolution = ({
   firstPersonMeetings: meetingsA,
   firstPersonDayBounds: boundsA,
@@ -66,5 +64,5 @@ const meetingsSolution = ({
 };
 
 export const solutions = {
-  "...": meetingsSolution,
+  "Meeting Solution": meetingsSolution,
 };
