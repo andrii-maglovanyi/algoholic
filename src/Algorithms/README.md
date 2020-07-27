@@ -54,7 +54,7 @@ The above example has O(n) time and space complexity.
 
 ## Algorithm structure
 
-– **Iterative**. Execute action in loop
-– **Recursive**. Reapply action to subproblem(s)
+- **Iterative**. Execute action in loop
+- **Recursive**. Reapply action to subproblem(s)
 
 [big-o-notation]: big-o-notation.jpeg "Big O notation"
