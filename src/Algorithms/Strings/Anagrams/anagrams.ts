@@ -1,4 +1,4 @@
-import { createCharMap, sortString } from "@utils/strings";
+import { createCharMap, sortString } from "@Utils/strings";
 
 /**
  * Time O(nlogn)

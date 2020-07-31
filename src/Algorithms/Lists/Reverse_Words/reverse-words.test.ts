@@ -1,6 +1,6 @@
 // @ts-nocheck
 
-import { TestSolutions } from "@utils/test-solutions";
+import { TestSolutions } from "@Utils/test-solutions";
 
 import { solutions } from "./reverse-words";
 

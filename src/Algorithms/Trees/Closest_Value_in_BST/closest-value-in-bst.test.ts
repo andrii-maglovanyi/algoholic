@@ -1,6 +1,6 @@
 // @ts-nocheck
 
-import { TestSolutions } from "@utils/test-solutions";
+import { TestSolutions } from "@Utils/test-solutions";
 
 import { BinaryTree } from "@Data_Structures/Binary_Tree/binary-tree";
 

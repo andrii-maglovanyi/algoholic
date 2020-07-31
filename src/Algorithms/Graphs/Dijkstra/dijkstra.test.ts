@@ -1,6 +1,6 @@
 // @ts-nocheck
 
-import { addVerticesAndEdges } from "@utils/graph";
+import { addVerticesAndEdges } from "@Utils/graph";
 
 import { Graph } from "@Data_Structures/Graph/graph";
 import { dijkstra } from "./dijkstra";

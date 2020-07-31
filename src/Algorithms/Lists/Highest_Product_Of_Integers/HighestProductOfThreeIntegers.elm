@@ -1,5 +1,7 @@
 module Algorithms.Lists.Highest_Product_Of_Integers.HighestProductOfThreeIntegers exposing (highestProductOfThreeIntegers)
 
+import Utils.GetByIndex exposing (getByIndex)
+
 
 type alias Products =
     { lowest : Int
@@ -37,33 +39,17 @@ getProducts current products =
     { lowest = lowest, highest = highest, lowestProductOfTwo = lowestProductOfTwo, highestProductOfTwo = highestProductOfTwo, maxProduct = maxProduct }
 
 
-get : Int -> List Int -> Int
-get nth list =
-    let
-        item =
-            list
-                |> List.drop nth
-                |> List.head
-    in
-    case item of
-        Just value ->
-            value
-
-        Nothing ->
-            1
-
-
 highestProductOfThreeIntegers : List Int -> Int
 highestProductOfThreeIntegers listOfInts =
     let
         first =
-            get 0 listOfInts
+            getByIndex 0 listOfInts 1
 
         second =
-            get 1 listOfInts
+            getByIndex 1 listOfInts 1
 
         third =
-            get 2 listOfInts
+            getByIndex 2 listOfInts 1
 
         lowest =
             min first second

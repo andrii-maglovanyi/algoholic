@@ -1,4 +1,4 @@
-import { withMemoization as memoize } from "@utils/memoization";
+import { withMemoization as memoize } from "@Utils/memoization";
 
 /**
  * Time O(2^n) or exponential

@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { addVerticesAndEdges } from "@utils/graph";
+import { addVerticesAndEdges } from "@Utils/graph";
 import { Graph } from "./graph";
 
 let directedGraph, undirectedGraph, weightedGraph;
