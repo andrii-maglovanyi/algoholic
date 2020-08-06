@@ -1,6 +1,6 @@
 # You have an array of integers, and for each index you want to find the product of _every integer except the integer at that index_
 
-Write a function getProductsOfAllIntsExceptAtIndex() that takes an array of integers and returns an array of the products.
+Write a function `getProductsOfAllIntsExceptAtIndex` that takes an array of integers and returns an array of the products.
 
 For example, given:
 
