@@ -8,28 +8,6 @@
 - Pure Functions
 - Recursion
 
-# Functor
-
-A **functor** represents a set of things that can be mapped over to obtain a set of new things under that same structure.
-We use the .map(f) method to perform that mapping.
-
-```javascript
-Functor<T> {
-  map: <a, b>(a => b, T<a>) => T<b>
-}
-```
-
-Module must match the `Functor` signature for some type `T`, and obey following laws:
-
-- Identity: `F.map(x => x, a) ≡ a`
-- Composition: `F.map(x => f(g(x)), a) ≡ F.map(f, F.map(g, a))`
-
-## Examples
-
-- Array
-- Object
-- String
-
 # Applicative
 
 With an applicative, the values are wrapped in a context, like `Functors`, but functions are also wrapped in a context.
