@@ -1,8 +1,8 @@
-export default class Wrapper {
-  constructor(private value: any) {}
+export default class Wrapper<T, U> {
+  constructor(private value: T) {}
 
   // map : (a -> b) -> a -> b
-  map(fn: Function) {
+  map(fn: (arg: T) => U) {
     return fn(this.value);
   }
 
@@ -14,7 +14,7 @@ export default class Wrapper {
    * and finally closes the value back into a new container of the same type.
    * This type of function is known as a functor.
    */
-  fmap(fn: Function) {
+  fmap(fn: (arg: T) => U) {
     return new Wrapper(fn(this.value));
   }
 
