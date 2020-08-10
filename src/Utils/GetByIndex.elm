@@ -1,7 +1,7 @@
 module Utils.GetByIndex exposing (getByIndex)
 
 
-getByIndex : Int -> List Int -> Int -> Int
+getByIndex : Int -> List a -> a -> a
 getByIndex nth list default =
     let
         item =
