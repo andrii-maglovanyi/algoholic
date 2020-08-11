@@ -32,6 +32,47 @@ const floydAlgorithm = (array: number[]) => {
   return tortoise;
 };
 
+// O(n*log(n)) time
+// O(1) space
+const countByDistinctNumbers = (array: number[]) => {
+  let floor = 1;
+  let ceiling = array.length - 1;
+
+  while (floor < ceiling) {
+    let middle = Math.floor((ceiling - floor) / 2 + floor);
+    let floorStart = floor;
+    let floorFinish = middle;
+    let ceilingStart = middle + 1;
+    let ceilingFinish = ceiling;
+
+    let realFloorValues = 0;
+    let realCeilingValues = 0;
+    array.forEach((number) => {
+      if (number >= floorStart && number <= floorFinish) {
+        realFloorValues += 1;
+      } else if (number >= ceilingStart && number <= ceilingFinish) {
+        realCeilingValues += 1;
+      }
+    });
+
+    let distinctFloorValues = floorFinish - floorStart + 1;
+    let distinctCeilingValues = ceilingFinish - ceilingStart + 1;
+
+    if (realFloorValues > distinctFloorValues) {
+      floor = floorStart;
+      ceiling = floorFinish;
+    } else if (realCeilingValues > distinctCeilingValues) {
+      floor = ceilingStart;
+      ceiling = ceilingFinish;
+    } else {
+      return false;
+    }
+  }
+
+  return ceiling;
+};
+
 export const solutions = {
-  "Floyd's Algorithm": floydAlgorithm,
+  floydAlgorithm,
+  countByDistinctNumbers,
 };
