@@ -12,5 +12,5 @@ def run_assertions(solution):
                      "asparagus", "beetroot", "cucumber", "eggplant", "leek", "radish"]) == 3
 
 
-def test_max_product_of_three():
+def test_rotation_point():
     run_assertions(solution)
