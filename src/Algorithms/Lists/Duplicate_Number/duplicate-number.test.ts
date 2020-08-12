@@ -14,5 +14,7 @@ describe("Find Duplicate Number", () => {
     expect(solution([1, 2, 5, 5, 5, 5])).toBe(5);
     expect(solution([1, 2, 3, 2])).toBe(2);
     expect(solution([4, 1, 4, 8, 3, 2, 7, 6, 5])).toBe(4);
+    expect(solution([3, 6, 9, 1, 4, 7, 2])).toBeFalsy();
+    expect(solution([1, 2, 1])).toBe(1);
   });
 });

@@ -1,7 +1,5 @@
-/**
- * Time O(n)
- * Space O(1)
- */
+// O(n) time
+// O(1) space
 const floydAlgorithm = (array: number[]) => {
   let tortoise = array[0],
     hare = array[0];
@@ -72,7 +70,44 @@ const countByDistinctNumbers = (array: number[]) => {
   return ceiling;
 };
 
+const findDuplicate = (array: number[]) => {
+  // Find a position in a cycle
+  let memoPositionInCycle = array.length;
+  for (let i = 0; i < array.length; i++) {
+    memoPositionInCycle = array[memoPositionInCycle - 1];
+  }
+
+  // Find a length of a cycle
+  let currentPositionInCycle = array[memoPositionInCycle - 1];
+
+  let cycleLength = 1;
+
+  while (currentPositionInCycle !== memoPositionInCycle) {
+    currentPositionInCycle = array[currentPositionInCycle - 1];
+    cycleLength += 1;
+  }
+
+  // Find a beginning of a cycle
+  let start = array.length;
+  let ahead = array.length;
+  for (let i = 0; i < cycleLength; i++) {
+    ahead = array[ahead - 1];
+  }
+
+  if (start === ahead) {
+    return false;
+  }
+
+  while (start !== ahead) {
+    start = array[start - 1];
+    ahead = array[ahead - 1];
+  }
+
+  return start;
+};
+
 export const solutions = {
   floydAlgorithm,
   countByDistinctNumbers,
+  findDuplicate,
 };
