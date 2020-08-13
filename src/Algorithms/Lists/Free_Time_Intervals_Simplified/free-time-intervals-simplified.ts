@@ -57,6 +57,6 @@ const sortAndMerge = (meetings: Tuple[]) => {
 };
 
 export const solutions = {
-  "Compare All Pairs": compareAllPairs,
-  "Merge Sorted Meetings": sortAndMerge,
+  compareAllPairs,
+  sortAndMerge,
 };
