@@ -25,6 +25,6 @@ const characterMapComparison = (textA: string, textB: string) => {
 };
 
 export const solutions = {
-  "Direct Comparison": directComparison,
-  "Character Map Comparison": characterMapComparison,
+  directComparison,
+  characterMapComparison,
 };
