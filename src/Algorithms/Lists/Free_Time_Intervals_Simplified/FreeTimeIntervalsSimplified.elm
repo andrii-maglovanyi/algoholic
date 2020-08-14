@@ -1,6 +1,7 @@
 module Algorithms.Lists.Free_Time_Intervals_Simplified.FreeTimeIntervalsSimplified exposing (solution)
 
-import Debug
+-- O(n^2) time
+-- O(n) space
 
 
 mergeRange : ( Int, Int ) -> ( Int, Int ) -> ( Int, Int )

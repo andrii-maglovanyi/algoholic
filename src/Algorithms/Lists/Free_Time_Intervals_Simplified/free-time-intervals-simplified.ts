@@ -38,7 +38,7 @@ const compareAllPairs = (slots: Tuple[]) => {
   return meetings.sort((a, b) => a.startTime - b.startTime);
 };
 
-// O(n*Log(n)) time
+// O(n*log(n)) time
 // O(1) space
 const sortAndMerge = (meetings: Tuple[]) => {
   const slots = [...meetings].sort((a, b) => a.startTime - b.startTime);
