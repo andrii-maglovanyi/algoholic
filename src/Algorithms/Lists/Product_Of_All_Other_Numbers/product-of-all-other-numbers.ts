@@ -50,6 +50,6 @@ const singleArraySolution = (numbers: number[]) => {
 };
 
 export const solutions = {
-  "Solution With Two Maps": solutionWithTwoMaps,
-  "Single Array Solution": singleArraySolution,
+  solutionWithTwoMaps,
+  singleArraySolution,
 };

@@ -5,7 +5,6 @@ import { withMemoization as memoize } from "@Utils/memoization";
  * Space O(n)
  */
 const nonTailRecursive = (num: number): number => {
-  if (num <= 0) return 0;
   if (num <= 1) return num;
 
   return nonTailRecursive(num - 1) + nonTailRecursive(num - 2);
@@ -52,7 +51,6 @@ const withMemoization = (() => {
   const cache: { [key: number]: number } = {};
 
   const fibonacci = (num: number): number => {
-    if (num <= 0) return 0;
     if (num <= 1) return num;
 
     if (cache[num]) {
@@ -73,7 +71,6 @@ const withMemoization = (() => {
  * Space O(n)
  */
 const withFlexibleMemoization = memoize((num: number) => {
-  if (num <= 0) return 0;
   if (num <= 1) return num;
 
   return withFlexibleMemoization(num - 1) + withFlexibleMemoization(num - 2);
@@ -102,10 +99,10 @@ const simpleLoop = (num: number) => {
 };
 
 export const solutions = {
-  "Non Tail Recursive": nonTailRecursive,
-  "Aggregate Calculations": aggregateCalculations,
-  "Tail Recursive": tailRecursive,
-  "With Memoization": withMemoization,
-  "With Flexible Memoization": withFlexibleMemoization,
-  "Simple Loop": simpleLoop,
+  nonTailRecursive,
+  aggregateCalculations,
+  tailRecursive,
+  withMemoization,
+  withFlexibleMemoization,
+  simpleLoop,
 };
