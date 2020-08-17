@@ -1,13 +1,10 @@
-type Callback = (value: Value) => any;
-type Value = string | number;
+export class BinaryTree<T extends string | number> {
+  public left: BinaryTree<T> | null = null;
+  public right: BinaryTree<T> | null = null;
 
-export class BinaryTree {
-  public left: BinaryTree | null = null;
-  public right: BinaryTree | null = null;
+  constructor(public value: T) {}
 
-  constructor(public value: Value) {}
-
-  contains(value: Value): boolean {
+  contains(value: T): boolean {
     if (value === this.value) return true;
 
     if (value < this.value) {
@@ -21,8 +18,8 @@ export class BinaryTree {
 
   // Levelorder: This traverses nodes by levels instead of sub-trees. First, visit the root node; then visit all children of the root node- left to right.
   // Subsequently, go down levels till you reach the node that has no children- the leaf nodes.
-  breadthFirstTraversal(callback: Callback) {
-    const queue = [this as BinaryTree];
+  breadthFirstTraversal(callback: (value: T) => any) {
+    const queue = [this as BinaryTree<T>];
     while (queue.length) {
       const root = queue.shift();
       if (root) {
@@ -36,7 +33,7 @@ export class BinaryTree {
   // Preorder: Visit the root first, then traverse the left sub-tree, and then the right sub-tree.
   // Inorder: First, you traverse the left child and its sub-tree, visit the root and then the right child and its sub-tree.
   // Postorder: Traverse the left sub-tree, then traverse the right sub-tree and then visit the root node.
-  depthFirstTraversal(order: string, callback: Callback) {
+  depthFirstTraversal(order: string, callback: (value: T) => any) {
     order === "pre" && callback(this.value);
     this.left && this.left.depthFirstTraversal(order, callback);
     order === "in" && callback(this.value);
@@ -44,17 +41,17 @@ export class BinaryTree {
     order === "post" && callback(this.value);
   }
 
-  getMaxValue(): Value {
+  getMaxValue(): T {
     if (this.right) return this.right.getMaxValue();
     return this.value;
   }
 
-  getMinValue(): Value {
+  getMinValue(): T {
     if (this.left) return this.left.getMinValue();
     return this.value;
   }
 
-  insert(value: Value) {
+  insert(value: T) {
     if (value <= this.value) {
       this.insertLeft(value);
     } else {
@@ -62,9 +59,9 @@ export class BinaryTree {
     }
   }
 
-  insertLeft(value: Value) {
+  insertLeft(value: T) {
     if (!this.left) {
-      this.left = new BinaryTree(value);
+      this.left = new BinaryTree<T>(value);
     } else {
       this.left.insert(value);
     }
@@ -72,9 +69,9 @@ export class BinaryTree {
     return this.left;
   }
 
-  insertRight(value: Value) {
+  insertRight(value: T) {
     if (!this.right) {
-      this.right = new BinaryTree(value);
+      this.right = new BinaryTree<T>(value);
     } else {
       this.right.insert(value);
     }
@@ -85,7 +82,7 @@ export class BinaryTree {
   print(order = "in") {
     let result = "";
 
-    const visit = (value: Value) => {
+    const visit = (value: T) => {
       result += result.length === 0 ? value : ` => ${value}`;
     };
 

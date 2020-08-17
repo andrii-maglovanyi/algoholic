@@ -12,10 +12,10 @@ describe("Functor", () => {
   test("Should create a new wrapped value immutably", () => {
     const plus = R.curry((a, b) => a + b);
     const plusThree = plus(3);
-    const plustTen = plus(10);
+    const plusTen = plus(10);
 
     const wrappedTwo = new Wrapper(2);
     expect(wrappedTwo.fmap(plusThree).map(R.identity)).toBe(5);
-    expect(wrappedTwo.fmap(plusThree).fmap(plustTen).map(R.identity)).toBe(15);
+    expect(wrappedTwo.fmap(plusThree).fmap(plusTen).map(R.identity)).toBe(15);
   });
 });
