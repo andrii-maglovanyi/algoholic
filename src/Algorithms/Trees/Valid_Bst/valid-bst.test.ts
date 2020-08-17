@@ -4,7 +4,7 @@ import { TestSolutions } from "@Utils/test-solutions";
 
 import { BinaryTree } from "@Data_Structures/Binary_Tree/binary-tree";
 
-import { solutions } from "./valid-binary-search-tree";
+import { solutions } from "./valid-bst";
 
 describe("Super-balanced tree", () => {
   const binaryTreeA = new BinaryTree(50);
