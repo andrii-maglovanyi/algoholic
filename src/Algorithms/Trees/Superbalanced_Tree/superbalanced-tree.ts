@@ -2,8 +2,8 @@ import { BinaryTree } from "@Data_Structures/Binary_Tree/binary-tree";
 
 // O(n) time
 // O(1) space
-const solution = (tree: BinaryTree) => {
-  const findMaxDepth = (tree: BinaryTree, curDepth: number) => {
+const solution = (tree: BinaryTree<number>) => {
+  const findMaxDepth = (tree: BinaryTree<number>, curDepth: number) => {
     curDepth += 1;
 
     if (tree.left) {

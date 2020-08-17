@@ -2,9 +2,12 @@ import { BinaryTree } from "@Data_Structures/Binary_Tree/binary-tree";
 
 // Average O(log(n)), worst O(n) time
 // Average O(log(n)), worst O(n) space
-const findClosestValueRecursively = (tree: BinaryTree, targetValue: number) => {
+const findClosestValueRecursively = (
+  tree: BinaryTree<number>,
+  targetValue: number
+) => {
   const findClosestInSubTree = (
-    tree: BinaryTree,
+    tree: BinaryTree<number>,
     targetValue: number,
     closestValue: number
   ): number => {
@@ -29,7 +32,10 @@ const findClosestValueRecursively = (tree: BinaryTree, targetValue: number) => {
 
 // Average O(log(n)), worst O(n) time
 // O(1) space
-const findClosestValueIteratively = (tree: BinaryTree, targetValue: number) => {
+const findClosestValueIteratively = (
+  tree: BinaryTree<number>,
+  targetValue: number
+) => {
   let current = tree;
   let closestValue = current.value as number;
   let smallestDiff = current.value as number;
@@ -55,6 +61,6 @@ const findClosestValueIteratively = (tree: BinaryTree, targetValue: number) => {
 };
 
 export const solutions = {
-  "Recursion Traversal": findClosestValueRecursively,
-  "Loop Traversal": findClosestValueIteratively,
+  findClosestValueRecursively,
+  findClosestValueIteratively,
 };
