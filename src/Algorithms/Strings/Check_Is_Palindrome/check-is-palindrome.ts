@@ -1,5 +1,5 @@
 // O(n) time
-// O(1) space
+// O(n) space
 
 // The ASCII character set has just 128 different characters (standard english letters and punctuation),
 // while Unicode has 110,000 (supporting several languages and some icons/symbols).
@@ -27,7 +27,7 @@ const checkWithSet = (input: string) => {
 };
 
 // O(n) time
-// O(1) space
+// O(n) space
 const checkWithMap = (input: string) => {
   const chars = new Map();
   let odds = 0;

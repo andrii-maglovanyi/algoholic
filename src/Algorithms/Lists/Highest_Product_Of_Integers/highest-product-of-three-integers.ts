@@ -39,5 +39,5 @@ const solution = (arrayOfInts: number[]) => {
 };
 
 export const solutions = {
-  Solution: solution,
+  solution,
 };

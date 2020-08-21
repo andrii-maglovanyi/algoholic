@@ -20,7 +20,7 @@ const findSum = (array: number[], sum: number) => {
   return -1;
 };
 
-// Time O(n*Log(n)) (depends on a sorting algorithm)
+// Time O(n*log(n)) (depends on a sorting algorithm)
 // Space O(n) (because we clone sorted array, otherwise it's O(1))
 const sortAndFindSum = (array: number[], sum: number) => {
   const sortedArray = [...array].sort((a, b) => a - b);

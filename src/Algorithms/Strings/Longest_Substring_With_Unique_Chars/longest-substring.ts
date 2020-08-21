@@ -45,6 +45,6 @@ const longestSubstringWithMap = (string: string) => {
 };
 
 export const solutions = {
-  "Longest Substring With Cursor Reset": longestSubstringWithCursorReset,
-  "Longest Substring With Map": longestSubstringWithMap,
+  longestSubstringWithCursorReset,
+  longestSubstringWithMap,
 };

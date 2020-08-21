@@ -6,7 +6,7 @@ const solution = (arrayOne: number[], arrayTwo: number[]) => {
 
   const result = [];
   while (indexOne < arrayOne.length || indexTwo < arrayTwo.length) {
-    if (!arrayTwo[indexTwo] || arrayOne[indexOne] <= arrayTwo[indexTwo]) {
+    if (arrayOne[indexOne] <= arrayTwo[indexTwo]) {
       result.push(arrayOne[indexOne]);
       indexOne++;
     } else {

@@ -35,6 +35,6 @@ const reverseWithTwoIndexes = (list: string[]) => {
 };
 
 export const solutions = {
-  "Reverse Characters List": reverseCharactersList,
-  "Reverse With Two Indexes": reverseWithTwoIndexes,
+  reverseCharactersList,
+  reverseWithTwoIndexes,
 };

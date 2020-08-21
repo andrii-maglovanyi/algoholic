@@ -36,5 +36,5 @@ const getMaxProfit = (stockPrices: number[]) => {
 };
 
 export const solutions = {
-  "Get Max Profit": getMaxProfit,
+  getMaxProfit,
 };

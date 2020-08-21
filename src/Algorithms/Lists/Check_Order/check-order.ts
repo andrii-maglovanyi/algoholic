@@ -34,5 +34,5 @@ const solution = (
 };
 
 export const solutions = {
-  Solution: solution,
+  solution,
 };
