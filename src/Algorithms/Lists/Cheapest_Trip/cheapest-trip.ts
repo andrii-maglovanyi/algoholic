@@ -13,7 +13,7 @@ const solution = (outbound: number[], inbound: number[]) => {
     currentInboundIndex--;
     currentOutboundIndex--;
 
-    if (inbound[currentInboundIndex] < inbound[cheapestInboundIndex]) {
+    if (inbound[currentInboundIndex] <= inbound[cheapestInboundIndex]) {
       cheapestInboundIndex = currentInboundIndex;
     }
 
