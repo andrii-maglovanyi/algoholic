@@ -9,7 +9,7 @@ const person = {
 
 describe("Ramda Lens", () => {
   test("Should read contents of a property", () => {
-    const nameProp = lensProp("name");
+    const nameProp = lensProp<typeof person>("name");
     expect(view(nameProp, person)).toBe("Andrii");
   });
 
@@ -19,7 +19,7 @@ describe("Ramda Lens", () => {
   });
 
   test("Should create a new person", () => {
-    const nameLens = lensProp("name");
+    const nameLens = lensProp<typeof person>("name");
     const newPerson = set(nameLens, "Mark", person);
 
     expect(person).toEqual({
