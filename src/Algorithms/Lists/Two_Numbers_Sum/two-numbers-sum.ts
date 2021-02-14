@@ -62,7 +62,7 @@ const findSumWithSet = (array: number[], sum: number) => {
 };
 
 export const solutions = {
-  "Two pointers": findSum,
-  "Sort and find sum": sortAndFindSum,
-  "Find sum with set": findSumWithSet,
+  findSum,
+  sortAndFindSum,
+  findSumWithSet,
 };

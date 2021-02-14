@@ -11,5 +11,5 @@ def run_assertions(solution):
     assert solution([10, 7, 5, 8, 11, 9]) == 6
 
 
-def test_max_product_of_three():
+def test_get_max_profit():
     run_assertions(get_max_profit)
